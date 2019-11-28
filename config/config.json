@@ -4,7 +4,7 @@
     "port": "8080"
   },
   "options": {
-    "prefix": "http://localhost:9081/"
+    "prefix": "https://s.testnet.color-platform.rnssol.com/"
   },
   "redis": {},
   "files_system": {
