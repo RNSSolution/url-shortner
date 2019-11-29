@@ -13,6 +13,7 @@ import (
 	"github.com/douglasmakey/ursho/config"
 	"github.com/douglasmakey/ursho/handler"
 	"github.com/douglasmakey/ursho/storage/postgres"
+	"github.com/rs/cors"
 )
 
 func main() {
@@ -36,7 +37,7 @@ func main() {
 	// Create a server
 	server := &http.Server{
 		Addr:    fmt.Sprintf("%s:%s", config.Server.Host, config.Server.Port),
-		Handler: handler.New(config.Options.Prefix, svc),
+		Handler: cors.Default().Handler(handler.New(config.Options.Prefix, svc)),
 	}
 
 	go func() {
